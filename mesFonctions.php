@@ -42,18 +42,23 @@ function getContact($Id){
 
 }
 function Search($Chaine){
+    $con = getDBConnexion();
     try {
-        $con = getDBConnexion();
+        if ($Chaine != null){
+            throw new Exception('la chaine doit etre differente de null');
+        }else{
+            $stmt = $con->prepare("SELECT * FROM contact WHERE Nom LIKE '%".$Chaine."%' OR Prenom LIKE '%".$Chaine."%'");
+            //$stmt->bindParam(':chaine', $Chaine);
+
+            $stmt->execute();
+
+            return $rows = $stmt->fetchAll();
+        }
     }catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage() . "<br/>";
         die();
     }
-    $stmt = $con->prepare("SELECT * FROM contact WHERE Nom LIKE '%".$Chaine."%' OR Prenom LIKE '%".$Chaine."%'");
-    //$stmt->bindParam(':chaine', $Chaine);
 
-    $stmt->execute();
-
-    return $rows = $stmt->fetchAll();
 
 }
 function AddContact($Name, $Surname, $Number){
