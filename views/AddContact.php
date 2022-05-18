@@ -1,3 +1,12 @@
+<?php
+require_once ('../Controllers/AddContact.controller.php');
+require_once ('../mesFonctions.php');
+if (isset($_GET['id'])){
+$roww = getContact(20);
+var_dump($roww);
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,19 +22,19 @@
 <body>
 
     <div class="col-md-6 mx-auto">
-        <h1 class="mt-5">Add a new contacts</h1>
+        <h1 class="mt-5"><?php if (isset($_GET['id'])){ echo "Modifier le contact numero : ".$_GET['id'];}else{echo "Ajouter un nouveau contacts";}?></h1>
         <form class="mt-5"  method="post">
             <div class="mb-3">
                 <label for="Name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="input_name">
+                <input type="text" class="form-control" id="name" name="input_name" <?php if (isset($_GET['id'])){ echo "value= '".$roww['Nom']."'";}?>>
             </div>
             <div class="mb-3">
                 <label for="surname" class="form-label">Surname</label>
-                <input type="text" class="form-control" id="prenom" name="input_surname">
+                <input type="text" class="form-control" id="prenom" name="input_surname" <?php if (isset($_GET['id'])){ echo "value= '".$roww['Prenom']."'";}?>>
             </div>
             <div class="mb-3">
                 <label for="surname" class="form-label">Number</label>
-                <input type="number" class="form-control" id="number" name="input_number">
+                <input type="number" class="form-control" id="number" name="input_number" <?php if (isset($_GET['id'])){ echo "value= '".$roww['Numero']."'";}?>>
             </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -34,7 +43,7 @@
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6 mx-auto">
-                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    <input type="submit" class="btn btn-primary w-100" name="submit"<?php if (isset($_GET['id'])){ echo "value='modifier'";}else{echo "value='Enregistrer'";}?>/>
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -46,4 +55,3 @@
 
 </html>
 <?php
-require_once ('../Controllers/AddContact.controller.php');

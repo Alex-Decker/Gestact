@@ -45,9 +45,9 @@ function delette($id)
                 <td>".$row['Numero']."</td>
                 <td>
                     <button type=_\"button\" class=\"btn btn-primary\">
-                        <a href='Controllers/DeleteContact.Controller.php?id=".$row['Id']."' style='color: white'>Update</a>
+                        <a href='Controllers/UpdateContact.controller.php?id=".$row['Id']."' style='color: white'>Update</a>
                     </button>
-                    <button type=_\"button\" class=\"btn btn-danger\">
+                    <button type=_\"button\" class=\"btn btn-danger\" onclick=\"return confirm('voulez-vous vraiment supprimer ???')\">
                         <a href='Controllers/DeleteContact.Controller.php?id=".$row['Id']."' style='color: white'>Delete</a>
                     </button>
                 </td></tr>";

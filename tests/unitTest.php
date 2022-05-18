@@ -3,10 +3,10 @@
 require("mesFonctions.php");
 use PHPUnit\Framework\TestCase;
 
-class test extends TestCase
+class unitTest extends TestCase
 {
     /**
-     * @tests
+     * @test
      */
     function getAllContacts()
     {
@@ -14,7 +14,7 @@ class test extends TestCase
         $this->assertNotNull($Resultat,'array is null');
     }
     /**
-     * @tests
+     * @test
      */
     function getContactIdNull()
     {
@@ -27,7 +27,7 @@ class test extends TestCase
         }
     }
     /**
-     * @tests
+     * @test
      */
     function getContactIdInvalide()
     {
@@ -41,7 +41,7 @@ class test extends TestCase
     }
 
     /**
-     * @tests
+     * @test
      */
     function SearchchaineNull()
     {
@@ -55,7 +55,7 @@ class test extends TestCase
     }
 
     /**
-     * @tests
+     * @test
      */
     function AddContactnometprenominvalide()
     {
@@ -67,7 +67,7 @@ class test extends TestCase
         }
     }
     /**
-     * @tests
+     * @test
      */
     function AddContactprenominvalide()
     {
@@ -79,7 +79,7 @@ class test extends TestCase
         }
     }
     /**
-     * @tests
+     * @test
      */
     function AddContactnominvalide()
     {
@@ -91,7 +91,7 @@ class test extends TestCase
         }
     }
     /**
-     * @tests
+     * @test
      */
     function UpdateContactnometprenominvalide()
     {
@@ -103,7 +103,7 @@ class test extends TestCase
         }
     }
     /**
-     * @tests
+     * @test
      */
     function UpdateContactprenominvalide()
     {
@@ -115,7 +115,7 @@ class test extends TestCase
         }
     }
     /**
-     * @tests
+     * @test
      */
     function UpdateContactnominvalide()
     {
@@ -128,7 +128,7 @@ class test extends TestCase
     }
 
     /**
-     * @tests
+     * @test
      */
     function DeleteContact_IdNull()
     {

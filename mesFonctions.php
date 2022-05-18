@@ -22,23 +22,13 @@ function getAllContacts(){
 }
 function getContact($Id){
     $con = getDBConnexion();
-    try {
-        if ($Id <= 0){
-            throw  new Exception('l\'id doit etre strictement supperieur a 0');
-        }else if($Id = null){
-            throw  new Exception('l\'id doit etre existante');
-        }else{
-            $stmt = $con->prepare("SELECT * FROM contact WHERE Id = :id");
-            $stmt->bindParam(':id', $Id);
 
-            $stmt->execute();
+    $stmt = $con->prepare("SELECT * FROM contact WHERE Id = :id");
+    $stmt->bindParam(':id', $Id);
 
-            return $rows = $stmt->fetchAll();
-        }
-    }catch (PDOException $e) {
-        print "Erreur !: " . $e->getMessage() . "<br/>";
-        die();
-    }
+    $stmt->execute();
+
+    return $rows = $stmt->fetchAll();
 
 }
 function Search($Chaine){
